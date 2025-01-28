@@ -1,7 +1,9 @@
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
+from cinema.views import IndexView, SessaoView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("app.urls"))
+    path('', IndexView.as_view(), name='index'),
+    path('sessoes/', SessaoView.as_view(), name='sessoes'),
 ]
