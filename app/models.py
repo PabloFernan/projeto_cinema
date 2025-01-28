@@ -26,6 +26,11 @@ class Sessao(models.Model):
     horario = models.DateTimeField()
     preco = models.DecimalField(max_digits=6, decimal_places=2)
 
+    class Meta:
+        verbose_name = 'Sessão'
+        verbose_name_plural = 'Sessões'
+
+
     def __str__(self):
         return f"{self.filme} - {self.horario}"
 
