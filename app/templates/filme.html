@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container mt-5">
+        <h1 class="text-center">Filmes</h1>
+        <ul>
+            {% for filme in filmes %}
+                <li>{{ filme.titulo }} - {{ filme.genero }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

@@ -1,11 +1,11 @@
-from django.contrib import admin
 from django.urls import path
-from . import views
-
-from.views import IndexView, SessaoView
+from .views import IndexView, FilmesView, SalasView, SessoesView, IngressosView, FuncionariosView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
-    path('sessoes/', SessaoView.as_view(), name='sessoes'),
+    path('filmes/', FilmesView.as_view(), name='filmes'),
+    path('salas/', SalasView.as_view(), name='salas'),
+    path('sessoes/', SessoesView.as_view(), name='sessoes'),
+    path('ingresso/', IngressosView.as_view(), name='ingresso'),
+    path('funcionarios/', FuncionariosView.as_view(), name='funcionarios'),
 ]

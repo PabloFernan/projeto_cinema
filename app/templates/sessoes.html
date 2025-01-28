@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container mt-5">
+        <h1 class="text-center">Sessões</h1>
+        <ul>
+            {% for sessao in sessoes %}
+                <li>{{ sessao.filme.titulo }} - {{ sessao.horario }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
