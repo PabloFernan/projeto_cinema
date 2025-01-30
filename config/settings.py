@@ -31,9 +31,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'app/templates'),
-        ],
+        'DIRS': [BASE_DIR / 'app/templates'],  
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -53,7 +51,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'projeto_cinema',
         'USER': 'postgres',
-        'PASSWORD': '123456',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '5432',
     }

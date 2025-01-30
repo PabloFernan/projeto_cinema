@@ -37,3 +37,12 @@ class FuncionarioAdmin(admin.ModelAdmin):
     list_display = ('nome', 'cargo', 'contato')
     search_fields = ('nome', 'cargo')
 
+@admin.register(Snack)
+class SnackAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'preco')
+    search_fields = ('nome',)
+
+@admin.register(Cidade)
+class CidadeAdmin(admin.ModelAdmin):
+    list_display = ('nome',)
+    search_fields = ('nome',)

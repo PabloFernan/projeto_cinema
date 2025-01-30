@@ -1,11 +1,10 @@
 from django.db import models
-
 from django.db import models
 
 class Filme(models.Model):
     titulo = models.CharField(max_length=200)
     genero = models.CharField(max_length=100)
-    duracao = models.PositiveIntegerField()  # Duração em minutos
+    duracao = models.PositiveIntegerField()  
     classificacao = models.CharField(max_length=20)
     sinopse = models.TextField()
 
@@ -15,7 +14,7 @@ class Filme(models.Model):
 class Sala(models.Model):
     nome = models.CharField(max_length=50)
     capacidade = models.PositiveIntegerField()
-    tipo = models.CharField(max_length=50)  # Ex.: 2D, 3D, IMAX
+    tipo = models.CharField(max_length=50)  
 
     def __str__(self):
         return self.nome
@@ -39,6 +38,9 @@ class Ingresso(models.Model):
     assento = models.CharField(max_length=10)
     vendido = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.nome
+
 class Funcionario(models.Model):
     nome = models.CharField(max_length=100)
     cargo = models.CharField(max_length=50)
@@ -46,3 +48,28 @@ class Funcionario(models.Model):
 
     def __str__(self):
         return self.nome
+    
+class Snack(models.Model):
+    nome = models.CharField(max_length=100)
+    descricao = models.TextField(blank=True, null=True)
+    preco = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return self.nome
+    
+    class Meta:
+        verbose_name = 'Snaks'
+        verbose_name_plural = 'Snaks'
+    
+class Cidade(models.Model):
+    nome = models.CharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return self.nome
+    
+    class Meta:
+        verbose_name = 'Cidade'
+        verbose_name_plural = 'Cidades'
+     
+
+

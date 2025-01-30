@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>Cidades com unidades do CineMuz</h2>
+        <ul class="list-group mt-3">
+            {% for cidade in cidades %}
+                <li class="list-group-item">{{ cidade.nome }}</li>
+            {% empty %}
+                <li class="list-group-item">Nenhuma cidade cadastrada.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

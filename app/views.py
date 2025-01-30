@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from .models import Filme, Sala, Sessao, Ingresso, Funcionario
+from .models import *
 
 class IndexView(View):
     def get(self, request):
@@ -30,3 +30,18 @@ class FuncionariosView(View):
     def get(self, request):
         funcionarios = Funcionario.objects.all()
         return render(request, 'funcionarios.html', {'funcionarios': funcionarios})
+    
+class SnacksView(View):
+    def get(self, request):
+        snacks = Snack.objects.all()
+        return render(request, 'app/snacks.html', {'snacks': snacks})
+
+        
+
+class CidadesView(View):
+    def get(self, request):
+        cidades = Cidade.objects.all()
+        return render(request, 'cidades.html', {'cidades': cidades})
+    
+
+
