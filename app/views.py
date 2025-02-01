@@ -31,11 +31,10 @@ class FuncionariosView(View):
         funcionarios = Funcionario.objects.all()
         return render(request, 'funcionarios.html', {'funcionarios': funcionarios})
     
-class SnacksView(View):
+class SnaksView(View):
     def get(self, request):
-        snacks = Snack.objects.all()
-        return render(request, 'app/snacks.html', {'snacks': snacks})
-
+        snaks = Snaks.objects.all()
+        return render(request, 'snaks.html', {'snaks': snaks})
         
 
 class CidadesView(View):

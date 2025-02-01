@@ -1,14 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container mt-5">
-        <h2>Cidades com unidades do CineMuz</h2>
-        <ul class="list-group mt-3">
+    <h1 class="mb-4">Lista de Cidades</h1>
+    <table class="table table-bordered">
+        <thead class="bg-primary text-white">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Estado</th>
+            </tr>
+        </thead>
+        <tbody>
             {% for cidade in cidades %}
-                <li class="list-group-item">{{ cidade.nome }}</li>
+                <tr>
+                    <td>{{ cidade.nome }}</td>
+                    <td>{{ cidade.estado }}</td>
+                </tr>
             {% empty %}
-                <li class="list-group-item">Nenhuma cidade cadastrada.</li>
+                <tr>
+                    <td colspan="2" class="text-center">Nenhuma cidade cadastrada.</td>
+                </tr>
             {% endfor %}
-        </ul>
-    </div>
+        </tbody>
+    </table>
 {% endblock %}

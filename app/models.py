@@ -39,7 +39,8 @@ class Ingresso(models.Model):
     vendido = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.nome
+        return f"Assento: {self.assento} - Sessão: {self.sessao.filme.titulo} às {self.sessao.horario.strftime('%H:%M')}"
+
 
 class Funcionario(models.Model):
     nome = models.CharField(max_length=100)
@@ -49,27 +50,27 @@ class Funcionario(models.Model):
     def __str__(self):
         return self.nome
     
-class Snack(models.Model):
-    nome = models.CharField(max_length=100)
-    descricao = models.TextField(blank=True, null=True)
-    preco = models.DecimalField(max_digits=6, decimal_places=2)
 
-    def __str__(self):
-        return self.nome
-    
-    class Meta:
-        verbose_name = 'Snaks'
-        verbose_name_plural = 'Snaks'
-    
 class Cidade(models.Model):
     nome = models.CharField(max_length=100, unique=True)
+    estado = models.CharField(max_length=100, unique=True, default='--')
 
     def __str__(self):
         return self.nome
-    
+
     class Meta:
         verbose_name = 'Cidade'
         verbose_name_plural = 'Cidades'
      
+class Snaks(models.Model):
+    nome = models.CharField(max_length=100)
+    descricao = models.TextField()
+    preco = models.DecimalField(max_digits=6, decimal_places=2)
+    funcionario = models.ForeignKey(Funcionario, related_name='snaks', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.nome
 
+    class Meta:
+        verbose_name = 'Snak'
+        verbose_name_plural = 'Snaks'

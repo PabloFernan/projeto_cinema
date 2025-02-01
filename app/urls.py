@@ -8,6 +8,6 @@ urlpatterns = [
     path('sessoes/', SessoesView.as_view(), name='sessoes'),
     path('ingresso/', IngressosView.as_view(), name='ingresso'),
     path('funcionarios/', FuncionariosView.as_view(), name='funcionarios'),
-    path('snacks/', SnacksView.as_view(), name='snacks'),
     path('cidades/', CidadesView.as_view(), name='cidades'),
+    path('snaks/', SnaksView.as_view(), name='snaks'),
 ]

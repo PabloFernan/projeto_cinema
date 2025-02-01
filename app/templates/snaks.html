@@ -1,22 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container">
-        <h2 class="mt-4">Snacks e Combos</h2>
-        <div class="row">
-            {% for snack in snacks %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ snack.nome }}</h5>
-                            <p class="card-text">{{ snack.descricao }}</p>
-                            <p class="font-weight-bold">Preço: R$ {{ snack.preco }}</p>
-                        </div>
-                    </div>
-                </div>
+    <h1 class="mb-4">Lista de Snacks</h1>
+    <table class="table table-bordered">
+        <thead class="bg-primary text-white">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for snack in snaks %}
+                <tr>
+                    <td>{{ snack.nome }}</td>
+                    <td>{{ snack.descricao }}</td>
+                    <td>R$ {{ snack.preco }}</td>
+                </tr>
             {% empty %}
-                <p>Nenhum snack disponível no momento.</p>
+                <tr>
+                    <td colspan="3" class="text-center">Nenhum snack cadastrado.</td>
+                </tr>
             {% endfor %}
-        </div>
-    </div>
+        </tbody>
+    </table>
 {% endblock %}
